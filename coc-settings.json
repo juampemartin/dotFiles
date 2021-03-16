@@ -1,0 +1,15 @@
+{
+    // Autoformat
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "html",
+        "json",
+        "java"
+    ],
+
+    // Codelens
+    "codeLens.enable": true,
+    "java.referencesCodeLens.enabled": true,
+    "java.implementationsCodeLens.enabled": true,
+    "java.completion.enabled": true
+}

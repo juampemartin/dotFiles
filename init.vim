@@ -52,12 +52,23 @@ Plug 'vim-airline/vim-airline-themes'
 " Prettier
 Plug 'sbdchd/neoformat'
 
+Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 " Setting the colorscheme and background configuration
 colorscheme gruvbox
 highligh Normal guibg=none
 
+" Treesitter Configuration 
+lua require'nvim-treesitter.configs'.setup {highlight = {enable = true} }
+
+" <---------- COC NMAPS CONFIGURATION ---------->
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " <---------- KEY REMAPS ---------->
 
