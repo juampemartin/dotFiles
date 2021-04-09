@@ -1,7 +1,6 @@
 " First SETTING the sets
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set expandtab
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set smartindent
 set relativenumber
 set nu
@@ -23,7 +22,7 @@ set signcolumn=yes
 " Give more space for displaying messages.
 set cmdheight=2
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to a poor user
+" Having longer update-time (default is 4000 ms = 4s) leads to a poor user
 " experience
 set updatetime=50
 
@@ -38,12 +37,14 @@ Plug 'nvim-telescope/telescope.nvim'
 " Coc Plugin
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Neovim Treesitter 
+" Neovim Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
-" Colorscheme (The only colorscheme allowed here is GRUVBOX)
+" Colorschemes
 Plug 'gruvbox-community/gruvbox'
+Plug 'ayu-theme/ayu-vim'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
 
 " Vim Airline
 Plug 'vim-airline/vim-airline'
@@ -53,22 +54,50 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sbdchd/neoformat'
 
 Plug 'jiangmiao/auto-pairs'
-
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'yuezk/vim-js'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
 call plug#end()
 
-" Setting the colorscheme and background configuration
-colorscheme gruvbox
-highligh Normal guibg=none
+" Treesitter Configuration
 
-" Treesitter Configuration 
-lua require'nvim-treesitter.configs'.setup {highlight = {enable = true} }
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+}
+EOF
+
+" Setting the colorscheme and background configuration
+
+syntax on
+colorscheme nvcode
+
+" Configure nvcode-colorschemes
+let g:nvcode_termcolors=256
+
+" Check if terminal has 24-bit color support
+if (has("termguicolors"))
+    set termguicolors
+    hi LineNr ctermbg=NONE guibg=NONE
+endif
+
+highlight Normal guibg=none
 
 " <---------- COC NMAPS CONFIGURATION ---------->
-" GoTo code navigation.
+" GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" <---------- KEY REMAPS ---------->
-
+" <---------- GIT GUTTER SYMBOLS ---------->
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '*'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
