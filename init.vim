@@ -26,6 +26,9 @@ set cmdheight=2
 " experience
 set updatetime=50
 
+" Set <Leader> map
+let mapleader=","
+
 " <---------- VIM PLUG CONFIGURATION ---------->
 call plug#begin('~/.vim/plugged')
 
@@ -33,6 +36,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " Coc Plugin
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -50,8 +55,9 @@ Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Prettier
+" Prettier and Discord rich presence
 Plug 'sbdchd/neoformat'
+Plug 'andweeb/presence.nvim'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -118,3 +124,11 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+" <---------- TELESCOPE CONFIGURATION ---------->
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
