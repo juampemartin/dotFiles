@@ -1,3 +1,5 @@
+" External files
+
 " First SETTING the sets
 set tabstop=2 softtabstop=2
 set shiftwidth=2
@@ -50,6 +52,8 @@ Plug 'nvim-treesitter/playground'
 Plug 'gruvbox-community/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'joshdick/onedark.vim'
+
 
 " Vim Airline
 Plug 'vim-airline/vim-airline'
@@ -59,12 +63,13 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sbdchd/neoformat'
 Plug 'andweeb/presence.nvim'
 
-Plug 'jiangmiao/auto-pairs'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'yuezk/vim-js'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 " Treesitter Configuration
@@ -78,7 +83,7 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-" Setting the colorscheme and background configuration
+" Setting the colorscheme and background configuration;
 
 syntax on
 colorscheme nvcode
@@ -131,4 +136,6 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" <---------- PRETTIER CONFIGURATION ---------->
 
