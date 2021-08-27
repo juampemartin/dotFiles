@@ -53,6 +53,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'joshdick/onedark.vim'
+Plug 'overcache/NeoSolarized'
 
 
 " Vim Airline
@@ -69,6 +70,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'yuezk/vim-js'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'norcalli/nvim-colorizer.lua'
 
 call plug#end()
 
@@ -76,7 +78,7 @@ call plug#end()
 
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
     enable = true,              -- false will disable the whole extension
   },
@@ -138,4 +140,5 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " <---------- PRETTIER CONFIGURATION ---------->
+autocmd BufWritePre *.js Neoformat
 
